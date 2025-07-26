@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnapFix - Hurtig Service / Fast Service</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #0078d7; color: white; padding: 1em; text-align: center; }
+    nav { margin-top: 1em; }
+    nav button { margin: 0 0.5em; padding: 0.5em 1em; cursor: pointer; }
+    main { padding: 2em; max-width: 800px; margin: auto; }
+    h1 { color: #0078d7; }
+    .service-list { list-style: none; padding: 0; }
+    .service-list li { padding: 0.5em 0; border-bottom: 1px solid #ddd; }
+    footer { text-align: center; padding: 1em; background: #f1f1f1; margin-top: 2em; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SnapFix</h1>
+  <p id="tagline">Hurtig service i hele Danmark / Fast service all over Denmark</p>
+  <nav>
+    <button onclick="setLanguage('da')">Dansk</button>
+    <button onclick="setLanguage('en')">English</button>
+  </nav>
+</header>
+
+<main>
+  <section id="intro">
+    <h2 data-da="Velkommen til SnapFix" data-en="Welcome to SnapFix"></h2>
+    <p data-da="Din pålidelige platform til hurtig og nem adgang til professionelle tjenester i dit hjem." 
+       data-en="Your reliable platform for fast and easy access to professional services at your home."></p>
+  </section>
+
+  <section id="services">
+    <h3 data-da="Vores tjenester" data-en="Our Services"></h3>
+    <ul class="service-list">
+      <li data-da="Rengøring" data-en="Cleaning"></li>
+      <li data-da="El-arbejde" data-en="Electrical Work"></li>
+      <li data-da="VVS og Vandrør" data-en="Plumbing"></li>
+      <li data-da="Flytning" data-en="Moving"></li>
+      <li data-da="Børnepasning" data-en="Childcare"></li>
+      <li data-da="Skønhedspleje" data-en="Beauty Services"></li>
+    </ul>
+  </section>
+
+  <section id="cta">
+    <button onclick="alert(currentLang === 'da' ? 'Bestil nu!' : 'Book Now!')" 
+            style="padding: 1em 2em; font-size: 1.2em; background: #0078d7; color: white; border: none; border-radius: 5px;">
+      <span data-da="Bestil nu" data-en="Book Now"></span>
+    </button>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 SnapFix. Alle rettigheder forbeholdes. / All rights reserved.</p>
+</footer>
+
+<script>
+  let currentLang = 'da';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-da]').forEach(el => {
+      el.textContent = el.getAttribute(lang === 'da' ? 'data-da' : 'data-en');
+    });
+  }
+
+  // Initialize with Danish
+  setLanguage(currentLang);
+</script>
+
+</body>
+</html>
