@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnapFix - Hurtig Service / Fast Service</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #0078d7;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav button {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 0.4rem 1rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    nav button:hover {
+      background-color: white;
+      color: #0078d7;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+    }
+    h2 {
+      color: #0078d7;
+      margin-bottom: 1rem;
+    }
+    ul.services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1rem;
+    }
+    ul.services-list li {
+      background: #e7f0fd;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: inset 0 0 5px rgba(0,120,215,0.3);
+      font-weight: 600;
+      text-align: center;
+      cursor: default;
+    }
+    form label {
+      display: block;
+      margin: 0.7rem 0 0.3rem;
+      font-weight: 600;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form textarea {
+      min-height: 80px;
+    }
+    form button {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0078d7;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #005ea2;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: #eee;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      nav button {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SnapFix</h1>
+  <nav>
+    <button onclick="setLang('da')">Dansk</button>
+    <button onclick="setLang('en')">English</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h2 data-da="Velkommen til SnapFix" data-en="Welcome to SnapFix"></h2>
+    <p data-da="Din pålidelige platform til hurtig og nem adgang til professionelle tjenester." 
+       data-en="Your reliable platform for fast and easy access to professional services."></p>
+  </section>
+
+  <section id="services">
+    <h2 data-da="Vores tjenester" data-en="Our Services"></h2>
+    <ul class="services-list">
+      <li data-da="Græsslåning" data-en="Lawn Mowing"></li>
+      <li data-da="Indkøb for ældre" data-en="Shopping for Seniors"></li>
+      <li data-da="Rengøring" data-en="Cleaning"></li>
+      <li data-da="Elektrisk arbejde" data-en="Electrical Work"></li>
+      <li data-da="VVS og rør" data-en="Plumbing"></li>
+      <li data-da="Børnepasning" data-en="Childcare"></li>
+      <li data-da="Skønhedspleje" data-en="Beauty Services"></li>
+    </ul>
+  </section>
+
+  <section id="booking">
+    <h2 data-da="Bestil en service" data-en="Book a Service"></h2>
+    <form id="serviceForm">
+      <label for="name" data-da="Navn" data-en="Name"></label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone" data-da="Telefonnummer" data-en="Phone Number"></label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="service" data-da="Vælg service" data-en="Select Service"></label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected data-da="Vælg en service" data-en="Select a service"></option>
+        <option value="lawn" data-da="Græsslåning" data-en="Lawn Mowing"></option>
+        <option value="shopping" data-da="Indkøb for ældre" data-en="Shopping for Seniors"></option>
+        <option value="cleaning" data-da="Rengøring" data-en="Cleaning"></option>
+        <option value="electric" data-da="Elektrisk arbejde" data-en="Electrical Work"></option>
+        <option value="plumbing" data-da="VVS og rør" data-en="Plumbing"></option>
+        <option value="childcare" data-da="Børnepasning" data-en="Childcare"></option>
+        <option value="beauty" data-da="Skønhedspleje" data-en="Beauty Services"></option>
+      </select>
+
+      <label for="details" data-da="Yderligere oplysninger" data-en="Additional Details"></label>
+      <textarea id="details" name="details"></textarea>
+
+      <button type="submit" data-da="Send bestilling" data-en="Submit Booking"></button>
+    </form>
+  </section>
+
+  <section id="about">
+    <h2 data-da="Om os" data-en="About Us"></h2>
+    <p data-da="SnapFix er din betroede platform til hurtige og nemme professionelle tjenester i Danmark."
+       data-en="SnapFix is your trusted platform for fast and easy professional services in Denmark."></p>
+  </section>
+
+  <section id="contact">
+    <h2 data-da="Kontakt os" data-en="Contact Us"></h2>
+    <p data-da="Email: kontakt@snapfix.dk" data-en="Email: contact@snapfix.dk"></p>
+    <p data-da="Telefon: +45 12 34 56 78" data-en="Phone: +45 12 34 56 78"></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 SnapFix. Alle rettigheder forbeholdes. / All rights reserved.</p>
+</footer>
+
+<script>
+  let currentLang = 'da';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // تمام متن‌ها را عوض می‌کنیم
+    document.querySelectorAll('[data-da]').forEach(el => {
+      if (el.tagName === 'OPTION' && el.parentElement.tagName === 'SELECT') {
+        el.textContent = el.getAttribute(lang === 'da' ? 'data-da' : 'data-en');
+      } else {
+        el.textContent = el.getAttribute(lang === 'da' ? 'data-da' : 'data-en');
+      }
+    });
+  }
+
+  // فرم ارسال
+  document.getElementById('serviceForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert(currentLang === 'da' ? 'Tak for din bestilling!' : 'Thank you for your booking!');
+    e.target.reset();
+  });
+
+  setLang(currentLang);
+</script>
+
+</body>
+</html>
