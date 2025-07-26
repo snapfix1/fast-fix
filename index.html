@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapFix - Hurtig Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; background: #f9f9f9; color: #333; }
+    header { background-color: #0077cc; color: white; padding: 1rem 2rem; text-align: center; }
+    nav { margin-top: 1rem; }
+    nav button { margin: 0 0.5rem; padding: 0.5rem 1rem; cursor: pointer; border: none; background: white; color: #0077cc; border-radius: 5px; }
+    main { max-width: 1000px; margin: auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 1rem; }
+    section { margin-bottom: 2rem; }
+    h1, h2, h3 { color: #0077cc; }
+    .services li { padding: 0.5rem 0; border-bottom: 1px solid #ddd; }
+    footer { text-align: center; background: #eee; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; }
+    .cta-button { background: #0077cc; color: white; padding: 1rem 2rem; font-size: 1.1rem; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SnapFix</h1>
+    <p id="tagline">Hurtig service i hele Danmark / Fast service across Denmark</p>
+    <nav>
+      <button onclick="setLanguage('da')">Dansk</button>
+      <button onclick="setLanguage('en')">English</button>
+    </nav>
+  </header>
+  <main>
+    <section id="about">
+      <h2 data-da="Om os" data-en="About Us"></h2>
+      <p data-da="Vi forbinder dig med pålidelige lokale fagfolk til hverdagens opgaver." 
+         data-en="We connect you with reliable local professionals for everyday tasks."></p>
+    </section>
+
+    <section id="services">
+      <h2 data-da="Tjenester" data-en="Services"></h2>
+      <ul class="services">
+        <li data-da="Græsslåning" data-en="Lawn Mowing"></li>
+        <li data-da="Indkøb for ældre" data-en="Shopping for Seniors"></li>
+        <li data-da="Rengøring" data-en="Cleaning"></li>
+        <li data-da="Elektrisk arbejde" data-en="Electrical Work"></li>
+        <li data-da="Flytning" data-en="Moving"></li>
+        <li data-da="Skønhedspleje" data-en="Beauty Services"></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2 data-da="Kontakt os" data-en="Contact Us"></h2>
+      <p>Email: support@snapfix.dk</p>
+      <p>Telefon: +45 12 34 56 78</p>
+    </section>
+
+    <section id="order">
+      <button class="cta-button" onclick="alert(currentLang === 'da' ? 'Bestil din service nu!' : 'Book your service now!')">
+        <span data-da="Bestil nu" data-en="Book Now"></span>
+      </button>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 SnapFix. Alle rettigheder forbeholdes. / All rights reserved.</p>
+  </footer>
+  <script>
+    let currentLang = 'da';
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-da]').forEach(el => {
+        el.textContent = el.getAttribute(lang === 'da' ? 'data-da' : 'data-en');
+      });
+    }
+    setLanguage(currentLang);
+  </script>
+</body>
+</html>
