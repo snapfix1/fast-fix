@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnapFix - Hurtig Service / Fast Service</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SnapFix</h1>
+    <p id="tagline">Hurtig service i hele Danmark / Fast service all over Denmark</p>
+    <nav>
+      <button onclick="setLanguage('da')">Dansk</button>
+      <button onclick="setLanguage('en')">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2 data-da="Velkommen til SnapFix" data-en="Welcome to SnapFix"></h2>
+      <p data-da="Din platform for hurtige og pålidelige tjenester." 
+         data-en="Your platform for fast and reliable services."></p>
+    </section>
+
+    <section id="services">
+      <h3 data-da="Vores tjenester" data-en="Our Services"></h3>
+      <ul class="service-list">
+        <li data-da="Græsslåning" data-en="Lawn Mowing"></li>
+        <li data-da="Indkøb for ældre" data-en="Shopping for Seniors"></li>
+        <li data-da="Rengøring" data-en="Cleaning"></li>
+        <li data-da="Flytning" data-en="Moving"></li>
+      </ul>
+    </section>
+
+    <section id="order">
+      <h3 data-da="Bestil en service" data-en="Book a Service"></h3>
+      <form>
+        <input type="text" placeholder="Navn / Name" required><br>
+        <input type="tel" placeholder="Telefonnummer / Phone" required><br>
+        <textarea placeholder="Beskrivelse / Description" required></textarea><br>
+        <button type="submit" data-da="Send" data-en="Submit"></button>
+      </form>
+    </section>
+
+    <section id="about">
+      <h3 data-da="Om os" data-en="About Us"></h3>
+      <p data-da="Vi tilbyder hurtige tjenester i hele Danmark." 
+         data-en="We offer fast services all across Denmark."></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SnapFix. Alle rettigheder forbeholdes. / All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentLang = 'da';
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-da]').forEach(el => {
+        el.textContent = el.getAttribute(lang === 'da' ? 'data-da' : 'data-en');
+      });
+    }
+    setLanguage(currentLang);
+  </script>
+</body>
+</html>
